@@ -1,2 +1,2 @@
 <?php
-echo 1;
+require_once("conf\config.php");
