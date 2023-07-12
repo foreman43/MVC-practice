@@ -1,5 +1,7 @@
 <?php
 
+use controllers\IndexController;
+
 /*
  ** http://localhost/PracticMVC/
  ** http://localhost/PracticMVC/login/
@@ -17,19 +19,20 @@ class Routing
 
         $route = explode('/', $_SERVER['REQUEST_URI']);
 
-        if($route[1] != '') {
+        if($route[2] != '') {
             $controllerName = ucfirst($route[1]. "Controller");
             $modelName = ucfirst($route[1]. "Model");
         }
 
         include CONTROLLER_PATH . $controllerName . ".php";
-        include MODEL_PATH . $controllerName . ".php";
+        include MODEL_PATH . $modelName . ".php";
 
-        if(isset($route[2])) {
-            $action = $route[2];
+        if(isset($route[3]) && $route[3] != '') {
+            $action = $route[3];
         }
 
         $controller = new $controllerName();
+        //$controller = new $controllerName();
         $controller->$action();
     }
 
