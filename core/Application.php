@@ -6,6 +6,7 @@ class Application
     public static string $ROOT;
     public Routing $routing;
     public Request $request;
+    public static Application $app;
 
     public function __construct($config)
     {
@@ -13,6 +14,7 @@ class Application
         $this->routing = new Routing($this->request);
 
         self::$ROOT = $config['root'];
+        self::$app = $this;
     }
 
     public function run()

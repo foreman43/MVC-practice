@@ -8,5 +8,9 @@ $config = [
 ];
 $app = new Application($config);
 $app->routing->get('/', 'index');
+$app->routing->get('/feedback', 'feedback');
+$app->routing->post('/feedback', function (){
+    return "result";
+});
 
 $app->run();

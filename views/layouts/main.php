@@ -46,7 +46,9 @@
 </header>
 
 <main id="main">
-    {{content}}
+    <div class="container">
+        {{content}}
+    </div>
 </main>
 
 <footer id="footer">
