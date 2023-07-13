@@ -33,7 +33,7 @@ class Routing
         $method = $this->request->getMethod();
         $callback = $this->routes[$method][$path] ?? false;
         if($callback === false) {
-            return $this->errorPage();
+            return $this->renderView("_404");
         }
 
         if(is_string($callback)) {
@@ -41,29 +41,31 @@ class Routing
         }
     }
 
-    protected function layoutContent()
+    protected function getLayoutContent()
     {
         ob_start();
         include_once Application::$ROOT . "/views/layouts/main.php";
         return ob_get_clean();
     }
 
-    protected function viewContent($view)
+    protected function getViewContent($view)
     {
         ob_start();
         include_once Application::$ROOT . "/views/$view.php";
         return ob_get_clean();
     }
 
-    public function renderView($view)
+    //todo
+    public function renderContent($viewContent)
     {
-        $layoutContent = $this->layoutContent();
-        $viewContent = $this->viewContent($view);
+        $layoutContent = $this->getLayoutContent();
         return str_replace("{{content}}", $viewContent, $layoutContent);
     }
-
-    public function errorPage()
+    
+    public function renderView($view)
     {
-        return "404";
+        $layoutContent = $this->getLayoutContent();
+        $viewContent = $this->getViewContent($view);
+        return str_replace("{{content}}", $viewContent, $layoutContent);
     }
 }
