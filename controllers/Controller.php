@@ -9,6 +9,8 @@ class Controller
 {
     public Model $model;
     public View $view;
+    //todo
+    //rewrite $pageInfo
     protected $pageInfo = array();
 
     public function __construct()

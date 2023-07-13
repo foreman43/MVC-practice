@@ -1,10 +1,11 @@
 <?php
-require_once("conf\config.php");
+require_once __DIR__ . "/vendor/autoload.php";
+
+use app\core\Application;
+
 $app = new Application();
 
-$route = new Routing();
-
-$app->routing->get('/', function (){
+$app->routing->get('/PracticMVC/', function (){
     return 'test';
 });
 
