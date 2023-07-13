@@ -1,10 +1,10 @@
 <?php
 
-namespace controllers;
+namespace app\controllers;
 
 use models\IndexModel;
 
-class IndexController extends Controller
+class SiteController extends Controller
 {
     private $pageTpl = "/views/main.tpl.php";
 
@@ -13,7 +13,7 @@ class IndexController extends Controller
         $this->model = new IndexModel();
     }
 
-    public function index()
+    public function actionIndex()
     {
         $this->pageInfo['title'] = "Авторизация пользователя";
     }
