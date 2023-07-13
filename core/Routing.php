@@ -27,16 +27,38 @@ class Routing
         $path = $this->request->getPath();
         $method = $this->request->getMethod();
         $callback = $this->routes[$method][$path] ?? false;
-        if($callback === false)
-        {
-            $this->errorPage();
+        if($callback === false) {
+            return $this->errorPage();
         }
 
-        echo call_user_func($callback);
+        if(is_string($callback)) {
+            return $this->renderView($callback);
+        }
+    }
+
+    protected function layoutContent()
+    {
+        ob_start();
+        include_once Application::$ROOT . "/views/layouts/main.php";
+        return ob_get_clean();
+    }
+
+    protected function viewContent($view)
+    {
+        ob_start();
+        include_once Application::$ROOT . "/views/$view.php";
+        return ob_get_clean();
+    }
+
+    public function renderView($view)
+    {
+        $layoutContent = $this->layoutContent();
+        $viewContent = $this->viewContent($view);
+        return str_replace("{{content}}", $viewContent, $layoutContent);
     }
 
     public function errorPage()
     {
-        echo "404";
+        return "404";
     }
 }
