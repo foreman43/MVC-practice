@@ -1,7 +1,5 @@
 <?php
 
-use controllers\IndexController;
-
 /*
  ** http://localhost/PracticMVC/
  ** http://localhost/PracticMVC/login/
@@ -11,6 +9,7 @@ use controllers\IndexController;
 
 class Routing
 {
+
     public static function buildRoute()
     {
         $controllerName = "IndexController";
@@ -31,8 +30,7 @@ class Routing
             $action = $route[3];
         }
 
-        $controller = new $controllerName();
-        //$controller = new $controllerName();
+        $controller = new $controllerName();        //fix namespace issue ?classes autoload
         $controller->$action();
     }
 
