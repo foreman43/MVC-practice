@@ -1,11 +1,5 @@
 <?php
 namespace app\core;
-/*
- ** http://localhost/PracticMVC/
- ** http://localhost/PracticMVC/login/
- ** http://localhost/PracticMVC/register/
- ** http://localhost/PracticMVC/account/feedback/
- ** */
 
 class Routing
 {
@@ -40,20 +34,22 @@ class Routing
             return $this->renderView($callback);
         }
         if(is_array($callback)) {
-            $callback[0] = new $callback[0]();
+            Application::$app->controller = new $callback[0]();
+            $callback[0] = Application::$app->controller;
         }
         return call_user_func($callback, $this->request);
     }
 
     protected function getLayoutContent($params)
     {
+        $layout = Application::$app->controller->layout;
         foreach ($params as $key=>$value)
         {
             $$key = $value;
         }
 
         ob_start();
-        include_once Application::$ROOT . "/views/layouts/main.php";
+        include_once Application::$ROOT . "/views/layouts/$layout.php";
         return ob_get_clean();
     }
 

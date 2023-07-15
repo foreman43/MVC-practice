@@ -4,7 +4,7 @@ namespace app\controllers;
 
 use app\core\Controller;
 use app\core\Request;
-use models\IndexModel;
+use models\SiteModel;
 
 class SiteController extends Controller
 {

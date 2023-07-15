@@ -4,9 +4,7 @@ namespace app\core;
 
 class Controller
 {
-    public string $View;
-    //todo
-    //rewrite $pageInfo
+    public string $layout = "main";
     protected $pageInfo = array();
 
     public function __construct()
@@ -17,5 +15,10 @@ class Controller
     public function render(string $view, $params = [])
     {
         return Application::$app->routing->renderView($view, $params);
+    }
+
+    public function setLayout(string $layout)
+    {
+        $this->layout = $layout;
     }
 }

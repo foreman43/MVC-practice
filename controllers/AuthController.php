@@ -3,18 +3,39 @@
 namespace app\controllers;
 
 use app\core\Controller;
+use app\core\Request;
 
 class AuthController extends Controller
 {
-    public function actionLogin()
+    public function actionLogin(Request $request)
     {
+        if($request->isPost())
+        {
+            return $this->actionLoginFormSubmit();
+        }
         $this->pageInfo['title'] = 'Авторизация';
-        $this->render('login', $this->pageInfo);
+        return $this->render('login', $this->pageInfo);
     }
 
-    public function actionRegister()
+    public function actionRegister(Request $request)
     {
+        if($request->isPost())
+        {
+            return $this->actionRegisterFormSubmit();
+        }
         $this->pageInfo['title'] = 'Регистрация';
-        $this->render('register', $this->pageInfo);
+        return $this->render('register', $this->pageInfo);
+    }
+
+    public function actionLoginFormSubmit()
+    {
+        //todo
+        return "placeholder";
+    }
+
+    public function actionRegisterFormSubmit()
+    {
+        //todo
+        return "placeholder";
     }
 }

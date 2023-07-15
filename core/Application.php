@@ -6,6 +6,8 @@ class Application
     public static string $ROOT;
     public Routing $routing;
     public Request $request;
+    public Controller $controller;
+
     public static Application $app;
 
     public function __construct($config)

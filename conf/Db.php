@@ -1,5 +1,5 @@
 <?php
-
+namespace Db;
 class Db
 {
     const ServerName = "localhost";

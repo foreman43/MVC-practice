@@ -1,11 +1,13 @@
 <?php
 
-namespace models;
+namespace app\core;
+
+use Db\Db;
 class Model
 {
     protected $db = null;
     public function __construct()
     {
-        $this->db = \Db::createConnection();
+        $this->db = Db::createConnection();
     }
 }

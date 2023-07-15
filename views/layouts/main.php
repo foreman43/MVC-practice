@@ -34,7 +34,7 @@
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <?php  echo isset($_SESSION['user']) ? ($_SESSION['user']) : '<a class="nav-link" href="#">Аутентификация</a>' ?>
+                        <?php  echo isset($_SESSION['user']) ? ($_SESSION['user']) : '<a class="nav-link" href="/login">Аутентификация</a>' ?>
                     </li>
                 </ul>
             </div>
