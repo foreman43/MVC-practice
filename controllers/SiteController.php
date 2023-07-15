@@ -2,19 +2,24 @@
 
 namespace app\controllers;
 
+use app\core\Controller;
 use models\IndexModel;
 
 class SiteController extends Controller
 {
-    private $pageTpl = "/views/main.tpl.php";
-
     public function __construct()
     {
-        $this->model = new IndexModel();
+
     }
 
     public function actionIndex()
     {
         $this->pageInfo['title'] = "Авторизация пользователя";
+        return $this->render('index', $this->pageInfo);
+    }
+
+    public function actionFeedback()
+    {
+
     }
 }

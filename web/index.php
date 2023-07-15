@@ -8,8 +8,8 @@ $config = [
     'root' => __DIR__."/../",
 ];
 $app = new Application($config);
-$app->routing->get('/', 'index');
-$app->routing->get('/feedback', 'feedback');
+$app->routing->get('/', [SiteController::class, 'actionIndex']);
+$app->routing->get('/feedback', [SiteController::class, 'actionFeedback']);
 $app->routing->post('/feedback', [SiteController::class, 'feedback']);
 
 $app->run();
