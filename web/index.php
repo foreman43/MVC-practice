@@ -10,6 +10,6 @@ $config = [
 $app = new Application($config);
 $app->routing->get('/', [SiteController::class, 'actionIndex']);
 $app->routing->get('/feedback', [SiteController::class, 'actionFeedback']);
-$app->routing->post('/feedback', [SiteController::class, 'feedback']);
+$app->routing->post('/feedback', [SiteController::class, 'actionLoginFormSubmit']);
 
 $app->run();
