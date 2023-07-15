@@ -25,7 +25,7 @@ class SiteController extends Controller
         return $this->render('feedback', $this->pageInfo);
     }
 
-    public function actionLoginFormSubmit(Request $request)
+    public function actionFeedbackFormSubmit(Request $request)
     {
         $data = $request->getSecureData();
     }
