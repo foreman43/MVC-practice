@@ -27,7 +27,7 @@ class AuthController extends Controller
         if($request->isPost()) {
             $registerModel->putData($request->getSecureData());
             if($registerModel->validate() && $registerModel->register()) {
-                return "success"; //todo: replace string by success page(?)
+                return $this->render('index',['title' => 'Профиль'] );
             }
 
             $this->pageInfo['model'] = $registerModel;

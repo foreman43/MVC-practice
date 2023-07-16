@@ -11,5 +11,7 @@
             "email": "a-lukyanov@bk.ru"
         }
     ],
-    "require": {}
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    }
 }
