@@ -25,4 +25,13 @@ class RegisterModel extends Model
         //todo: finish the function
         return true;
     }
+
+    public function getLabel(): array
+    {
+        return [
+            'email' => 'Email',
+            'password' => 'Password',
+            'confirmPassword' => 'Password Confirm'
+        ];
+    }
 }

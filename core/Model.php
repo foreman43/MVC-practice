@@ -73,6 +73,16 @@ abstract class Model
         return empty($this->errors);
     }
 
+    public function containErrors(string $attribute): bool
+    {
+        return isset($this->errors[$attribute]) ?? false;
+    }
+
+    public function getFirstError(string $attribute): string
+    {
+        return $this->errors[$attribute][0] ?? '';
+    }
+
     public function addError(string $attribute, string $ruleType, $rule = []): void
     {
         $message = $this->getErrorMessage()[$ruleType] ?? '';
@@ -92,4 +102,6 @@ abstract class Model
             self::MACH => "{attribute} must mach a {mach} field"
         ];
     }
+
+    public abstract function getLabel(): array;
 }
