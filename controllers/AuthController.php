@@ -31,7 +31,6 @@ class AuthController extends Controller
             }
 
             $this->pageInfo['model'] = $registerModel;
-            var_dump($registerModel->errors);
             return $this->render('register',$this->pageInfo);
         }
 

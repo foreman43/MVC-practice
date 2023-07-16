@@ -14,9 +14,9 @@ class RegisterModel extends Model
     {
         //todo: finish filling the rules
         return [
-            'email' => [self::REQUIRED],
-            'password' => [self::REQUIRED],
-            'confirmPassword' => [self::REQUIRED]
+            'email' => [[self::REQUIRED]],
+            'password' => [[self::REQUIRED], [self::MIN, 'min' => 5]],
+            'confirmPassword' => [[self::REQUIRED]]
         ];
     }
 
