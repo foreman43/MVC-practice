@@ -5,9 +5,6 @@ namespace app\core;
 class Database
 {
     public \PDO $pdo;
-    public string $dsn;
-    public string $userName;
-    public string $userPassword;
 
     public function __construct(array $config)
     {
