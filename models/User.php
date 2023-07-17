@@ -39,8 +39,8 @@ class User extends ActiveRecord
 
     public function register(): bool
     {
-        $this->save();
-        return true;
+        $this->password = password_hash($this->password,PASSWORD_DEFAULT);
+        return $this->save();
     }
 
     public function getLabel(): array
