@@ -7,13 +7,24 @@ use app\core\Model;
 
 class User extends ActiveRecord
 {
-    public string $email;
-    public string $password;
-    public string $confirmPassword;
+    public string $id = '';
+    public string $email = '';
+    public string $name = '';
+    public string $password = '';
+    public string $confirmPassword = '';
 
     public function tableName(): string
     {
         return "users";
+    }
+
+    public function attributes(): array
+    {
+        return [
+            'email',
+            'name',
+            'password',
+        ];
     }
 
     public function rules(): array
@@ -28,14 +39,16 @@ class User extends ActiveRecord
 
     public function register(): bool
     {
-        //todo: finish the function
+        $this->save();
         return true;
     }
 
     public function getLabel(): array
     {
         return [
+            'id' => 'Identifier',
             'email' => 'Email',
+            'name' => 'Name',
             'password' => 'Password',
             'confirmPassword' => 'Password Confirm'
         ];

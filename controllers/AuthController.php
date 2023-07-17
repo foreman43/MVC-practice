@@ -22,19 +22,19 @@ class AuthController extends Controller
     public function actionRegister(Request $request)
     {
         $this->pageInfo['title'] = 'Регистрация';
-        $registerModel = new User();
+        $model = new User();
 
         if($request->isPost()) {
-            $registerModel->putData($request->getSecureData());
-            if($registerModel->validate() && $registerModel->register()) {
+            $model->putData($request->getSecureData());
+            if($model->validate() && $model->register()) {
                 return $this->render('index',['title' => 'Профиль'] );
             }
 
-            $this->pageInfo['model'] = $registerModel;
+            $this->pageInfo['model'] = $model;
             return $this->render('register',$this->pageInfo);
         }
 
-        $this->pageInfo['model'] = $registerModel;
+        $this->pageInfo['model'] = $model;
         return $this->render('register', $this->pageInfo);
     }
 }
