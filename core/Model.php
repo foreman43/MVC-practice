@@ -102,6 +102,4 @@ abstract class Model
             self::MACH => "{attribute} must mach a {mach} field"
         ];
     }
-
-    public abstract function getLabel(): array;
 }

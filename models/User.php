@@ -2,13 +2,19 @@
 
 namespace app\models;
 
+use app\core\ActiveRecord;
 use app\core\Model;
 
-class RegisterModel extends Model
+class User extends ActiveRecord
 {
     public string $email;
     public string $password;
     public string $confirmPassword;
+
+    public function tableName(): string
+    {
+        return "users";
+    }
 
     public function rules(): array
     {

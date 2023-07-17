@@ -4,7 +4,7 @@ namespace app\controllers;
 
 use app\core\Controller;
 use app\core\Request;
-use app\models\RegisterModel;
+use app\models\User;
 
 class AuthController extends Controller
 {
@@ -22,7 +22,7 @@ class AuthController extends Controller
     public function actionRegister(Request $request)
     {
         $this->pageInfo['title'] = 'Регистрация';
-        $registerModel = new RegisterModel();
+        $registerModel = new User();
 
         if($request->isPost()) {
             $registerModel->putData($request->getSecureData());
