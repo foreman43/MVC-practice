@@ -14,4 +14,9 @@ class Database
         $this->pdo = new \PDO($dsn, $userName, $userPassword);
         $this->pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
     }
+
+    public function prepare(string $query)
+    {
+        return $this->pdo->prepare($query);
+    }
 }

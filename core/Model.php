@@ -10,6 +10,7 @@ abstract class Model
     public const MAX = 'max';
     public const EMAIL = 'email';
     public const MACH = 'mach';
+    public const UNIQUE = 'unique';
 
     //protected $db = null;
 
@@ -48,25 +49,45 @@ abstract class Model
                             $this->addError($attribute, self::REQUIRED, $rule);
                         }
                         break;
+
                     case self::EMAIL:
                         if(!filter_var($value, FILTER_VALIDATE_EMAIL)) {
                             $this->addError($attribute, self::MIN, $rule);
                         }
                         break;
+
                     case self::MIN:
                         if(strlen($value) < $rule['min']) {
                             $this->addError($attribute, self::MIN, $rule);
                         }
                         break;
+
                     case self::MAX:
                         if(strlen($value) > $rule['max']) {
                             $this->addError($attribute, self::MAX, $rule);
                         }
                         break;
+
                     case self::MACH:
                         if($value != $rule['mach']) {
                             $this->addError($attribute, self::MACH, $rule);
                         }
+                        break;
+
+                    case self::UNIQUE:
+                        $className = $rule['class'];
+                        $tableName = $className::tableName();
+                        $statment = Application::$app->db->prepare(
+                            "SELECT * FROM $tableName 
+                            WHERE $attribute = :$attribute"
+                        );
+                        $statment->bindValue(":$attribute", $value);
+                        $statment->execute();
+                        $record = $statment->fetchObject();
+                        if($record) {
+                            $this->addError($attribute, self::UNIQUE, $rule);
+                        }
+                        break;
                 }
             }
         }
@@ -99,7 +120,8 @@ abstract class Model
             self::MIN => "field must be longer then {min}",
             self::MAX => "field must be shorter then {max}",
             self::EMAIL => "field must be an Email",
-            self::MACH => "{attribute} must mach a {mach} field"
+            self::MACH => "attribute must mach a {mach} field",
+            self::UNIQUE => "attribute must be unique"
         ];
     }
 }

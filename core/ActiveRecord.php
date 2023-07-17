@@ -23,6 +23,6 @@ abstract class ActiveRecord extends Model
 
     public static function prepare(string $query)
     {
-        return Application::$app->db->pdo->prepare($query);
+        return Application::$app->db->prepare($query);
     }
 }

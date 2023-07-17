@@ -28,7 +28,8 @@ class Field
             $this->type,
             $this->attribute,
             $this->model->containErrors($this->attribute) ? ' in-valid' : '',
-            $this->model->{$this->attribute} ?? '',
+            $this->type != 'password'
+                ? $this->model->{$this->attribute} ?? '': '',
             $this->model->getFirstError($this->attribute)
         );
     }
