@@ -1,0 +1,17 @@
+{
+    "name": "artem/practic-mvc",
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "Артём Лукьянов",
+            "email": "a-lukyanov@bk.ru"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    }
+}

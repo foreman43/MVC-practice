@@ -1,13 +1,10 @@
 <?php
-define('ROOT', "E:/xampp/htdocs/PracticMVC");
-define('MODEL_PATH', ROOT . '/models/');
-define('VIEW_PATH', ROOT . '/views/');
-define('CONTROLLER_PATH', ROOT . '/controllers/');
 
-require_once('db.php');
-require_once('route.php');
-require_once(MODEL_PATH . 'Model.php');
-require_once(VIEW_PATH . 'View.php');
-require_once(CONTROLLER_PATH . 'Controller.php');
-
-Routing::buildRoute();
+$config = [
+    'db' => [
+        'dsn' => $_ENV['DB_DSN'],
+        'userName' => $_ENV['DB_USER'],
+        'usePassword' => $_ENV['DB_PASSWORD'],
+    ],
+    'root' => __DIR__."/../",
+];
