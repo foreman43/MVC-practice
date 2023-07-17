@@ -7,7 +7,7 @@ abstract class ActiveRecord extends Model
     abstract public function tableName(): string;
     abstract  public function attributes(): array;
 
-    public function save()
+    public function save(): bool
     {
         $tableName = $this->tableName();
         $attributes = $this->attributes();
@@ -18,7 +18,7 @@ abstract class ActiveRecord extends Model
         foreach ($attributes as $attribute) {
             $statment->bindValue(":$attribute", $this->{$attribute});
         }
-        $statment->execute();
+        return $statment->execute();
     }
 
     public static function prepare(string $query)

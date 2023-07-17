@@ -28,8 +28,11 @@ class AuthController extends Controller
         if($request->isPost()) {
             $model->putData($request->getSecureData());
             if($model->validate() && $model->register()) {
+                Application::$app->session->setFlash(
+                    'success',
+                    'Registration was successful!'
+                );
                 Application::$app->response->redirect('/');
-                //return $this->render('index',['title' => 'Профиль'] );
             }
 
             $this->pageInfo['model'] = $model;
