@@ -7,6 +7,7 @@ class Application
     public Database $db;
     public Routing $routing;
     public Request $request;
+    public Response $response;
     public Controller $controller;
 
     public static Application $app;
@@ -15,6 +16,7 @@ class Application
     {
         $this->request = new Request();
         $this->routing = new Routing($this->request);
+        $this->response = new Response();
         $this->db = new Database($config['db']);
 
         self::$ROOT = $config['root'];

@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\core\Application;
 use app\core\Controller;
 use app\core\Request;
 use app\models\User;
@@ -27,7 +28,8 @@ class AuthController extends Controller
         if($request->isPost()) {
             $model->putData($request->getSecureData());
             if($model->validate() && $model->register()) {
-                return $this->render('index',['title' => 'Профиль'] );
+                Application::$app->response->redirect('/');
+                //return $this->render('index',['title' => 'Профиль'] );
             }
 
             $this->pageInfo['model'] = $model;
