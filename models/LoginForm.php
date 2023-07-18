@@ -1,16 +1,15 @@
 <?php
 
-namespace models;
+namespace app\models;
 
 use app\core\Model;
 
-class LoginModel extends Model
+class LoginForm extends Model
 {
     public string $email;
     public string $password;
     public function rules(): array
     {
-        // TODO: Finish implementing rules() method.
         return [
             'email' => [
                 [self::REQUIRED],
@@ -27,5 +26,13 @@ class LoginModel extends Model
     public function login()
     {
 
+    }
+
+    public function getLabels(): array
+    {
+        return [
+            'email' => 'Email',
+            'password' => 'Password',
+        ];
     }
 }

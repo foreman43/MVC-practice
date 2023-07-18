@@ -24,7 +24,7 @@ class Field
             '<label class="form-label">%s</label>
             <input type="%s" name="%s" class="form-control%s" value="%s">
             <div class="invalid-feedback">%s</div>',
-            $this->model->getLabel()[$this->attribute],
+            $this->model->getLabels()[$this->attribute],
             $this->type,
             $this->attribute,
             $this->model->containErrors($this->attribute) ? ' in-valid' : '',

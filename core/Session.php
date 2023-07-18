@@ -2,9 +2,12 @@
 
 namespace app\core;
 
+use app\models\User;
+
 class Session
 {
     protected const FLASH_KEY = 'flash_mess';
+    protected const CURRENT_USER = 'curr_user';
 
     public function __construct()
     {
@@ -14,6 +17,11 @@ class Session
             $message['remove'] = true;
         }
         $_SESSION[self::FLASH_KEY] = $flashMessages;
+    }
+
+    public function setCurrentUser(User $user): void
+    {
+        $_SESSION[self::CURRENT_USER] = $user;
     }
 
     public function setFlash($key, $message): void

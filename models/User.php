@@ -53,7 +53,7 @@ class User extends ActiveRecord
         return $this->save();
     }
 
-    public function getLabel(): array
+    public function getLabels(): array
     {
         return [
             'id' => 'Identifier',
