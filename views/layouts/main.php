@@ -29,10 +29,7 @@ use app\core\Application;
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Домой</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/feedback">Обратная связь</a>
+                        <a class="nav-link" href="/">Обратная связь</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
