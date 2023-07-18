@@ -35,9 +35,8 @@ class AuthController extends Controller
 
     public function actionLogout()
     {
-        $this->pageInfo['title'] = 'Главная';
         Application::$app->logout();
-        return $this->render('index', $this->pageInfo);
+        Application::$app->response->redirect('/');
     }
 
     public function actionRegister(Request $request)
