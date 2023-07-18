@@ -1,5 +1,6 @@
 <?php
 use app\core\Application;
+var_dump(Application::$app->user, Application::$app->session->get('user'));
 ?>
 <!doctype html>
 <html lang="ru">
@@ -35,10 +36,12 @@ use app\core\Application;
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <?php
-                        echo Application::$app->user->name != ''
-                            ? Application::$app->user->name
-                            : Application::$app->user->email
-                                ?? '<a class="nav-link" href="/login">Аутентификация</a>'
+                        if(Application::isGuest()) {
+                            echo '<a class="nav-link" href="/login">Аутентификация</a>';
+                        }
+                        else {
+                            echo '<a class="nav-link" href="/logout">' . Application::$app->user->name ?? Application::$app->user->email . '</a>';
+                        }
                         ?>
                     </li>
                 </ul>

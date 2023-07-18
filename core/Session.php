@@ -28,6 +28,11 @@ class Session
         return $_SESSION[$key] ?? false;
     }
 
+    public function remove(string $key): void
+    {
+        unset($_SESSION[$key]);
+    }
+
     public function setFlash($key, $message): void
     {
         $_SESSION[self::FLASH_KEY][$key] = [

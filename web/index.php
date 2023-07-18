@@ -26,6 +26,8 @@ $app->routing->post('/feedback', [SiteController::class, 'actionFeedbackFormSubm
 $app->routing->get('/login', [AuthController::class, 'actionLogin']);
 $app->routing->post('/login', [AuthController::class, 'actionLogin']);
 
+$app->routing->get('/logout', [AuthController::class, 'actionLogout']);
+
 $app->routing->get('/register', [AuthController::class, 'actionRegister']);
 $app->routing->post('/register', [AuthController::class, 'actionRegister']);
 

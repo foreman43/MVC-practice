@@ -18,9 +18,10 @@ class AuthController extends Controller
         if($request->isPost()) {
             $model->putData($request->getSecureData());
             if($model->validate() && $model->login()) {
+                $curUser = Application::$app->user->name ?? Application::$app->user->email;
                 Application::$app->session->setFlash(
                     'success',
-                    'You loged in as '
+                    "You loged in as $curUser"
                 );
                 Application::$app->response->redirect('/');
             }
@@ -30,6 +31,13 @@ class AuthController extends Controller
 
         $this->pageInfo['model'] = $model;
         return $this->render('login', $this->pageInfo);
+    }
+
+    public function actionLogout()
+    {
+        $this->pageInfo['title'] = 'Главная';
+        Application::$app->logout();
+        return $this->render('index', $this->pageInfo);
     }
 
     public function actionRegister(Request $request)

@@ -11,7 +11,7 @@ class Application
     public Response $response;
     public Controller $controller;
     public Session $session;
-    public ?ActiveRecord $user;
+    public ?ActiveRecord $user = null;
 
     public static Application $app;
 
@@ -39,6 +39,11 @@ class Application
         echo $this->routing->resolve();
     }
 
+    public static function isGuest()
+    {
+        return !self::$app->user;
+    }
+
     public function login(ActiveRecord $user): bool
     {
         $this->user = $user;
@@ -46,5 +51,11 @@ class Application
         $primaryValue = $user->{$primaryKey};
         $this->session->set('user', $primaryValue);
         return true;
+    }
+
+    public function logout(): void
+    {
+        $this->session->remove('user');
+        //$this->response->redirect('/');
     }
 }
