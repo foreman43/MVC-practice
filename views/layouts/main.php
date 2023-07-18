@@ -37,7 +37,12 @@ use app\core\Application;
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <?php  echo isset($_SESSION['user']) ? ($_SESSION['user']) : '<a class="nav-link" href="/login">Аутентификация</a>' ?>
+                        <?php
+                        echo Application::$app->user->name != ''
+                            ? Application::$app->user->name
+                            : Application::$app->user->email
+                                ?? '<a class="nav-link" href="/login">Аутентификация</a>'
+                        ?>
                     </li>
                 </ul>
             </div>

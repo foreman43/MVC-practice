@@ -36,7 +36,8 @@ class LoginForm extends Model
             $this->addErrorMessage('password', 'Wrong email or password');
             return false;
         }
-        return true;
+
+        return Application::$app->login($user);
     }
 
     public function getLabels(): array

@@ -19,6 +19,11 @@ class User extends ActiveRecord
         return "users";
     }
 
+    public static function primaryKey(): string
+    {
+        return 'id';
+    }
+
     public function attributes(): array
     {
         return [

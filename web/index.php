@@ -14,6 +14,7 @@ $config = [
         'usePassword' => $_ENV['DB_PASSWORD'],
     ],
     'root' => __DIR__."/../",
+    'userClass' => 'app\models\User',
 ];
 
 $app = new Application($config);

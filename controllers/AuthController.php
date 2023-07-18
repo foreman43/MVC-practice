@@ -18,6 +18,10 @@ class AuthController extends Controller
         if($request->isPost()) {
             $model->putData($request->getSecureData());
             if($model->validate() && $model->login()) {
+                Application::$app->session->setFlash(
+                    'success',
+                    'You loged in as '
+                );
                 Application::$app->response->redirect('/');
             }
             $this->pageInfo['model'] = $model;

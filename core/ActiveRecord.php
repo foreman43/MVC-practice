@@ -6,6 +6,7 @@ abstract class ActiveRecord extends Model
 {
     abstract static public function tableName(): string;
     abstract public function attributes(): array;
+    abstract public static function primaryKey(): string;
 
     public function save(): bool
     {

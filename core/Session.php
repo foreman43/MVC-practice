@@ -7,7 +7,6 @@ use app\models\User;
 class Session
 {
     protected const FLASH_KEY = 'flash_mess';
-    protected const CURRENT_USER = 'curr_user';
 
     public function __construct()
     {
@@ -19,9 +18,14 @@ class Session
         $_SESSION[self::FLASH_KEY] = $flashMessages;
     }
 
-    public function setCurrentUser(User $user): void
+    public function set(string $key, string $value): void
     {
-        $_SESSION[self::CURRENT_USER] = $user;
+        $_SESSION[$key] = $value;
+    }
+
+    public function get(string $key): string
+    {
+        return $_SESSION[$key] ?? false;
     }
 
     public function setFlash($key, $message): void
