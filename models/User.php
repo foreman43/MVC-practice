@@ -14,7 +14,7 @@ class User extends ActiveRecord
     public string $confirmPassword = '';
     public int $role_id = 3;
 
-    public function tableName(): string
+    public static function tableName(): string
     {
         return "users";
     }
