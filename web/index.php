@@ -20,9 +20,6 @@ $config = [
 $app = new Application($config);
 $app->routing->get('/', [SiteController::class, 'actionIndex']);
 
-$app->routing->get('/feedback', [SiteController::class, 'actionFeedback']);
-$app->routing->post('/feedback', [SiteController::class, 'actionFeedbackFormSubmit']);
-
 $app->routing->get('/login', [AuthController::class, 'actionLogin']);
 $app->routing->post('/login', [AuthController::class, 'actionLogin']);
 

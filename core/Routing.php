@@ -41,7 +41,7 @@ class Routing
         return call_user_func($callback, $this->request);
     }
 
-    protected function getLayoutContent($params)
+    protected function getLayoutContent($params): false|string
     {
         $layout = Application::$app->controller->layout;
         foreach ($params as $key=>$value)
@@ -54,7 +54,7 @@ class Routing
         return ob_get_clean();
     }
 
-    protected function getViewContent($view, $params)
+    protected function getViewContent($view, $params): false|string
     {
         foreach ($params as $key=>$value)
         {
@@ -66,13 +66,13 @@ class Routing
         return ob_get_clean();
     }
 
-    public function renderContent($viewContent)
+    public function renderContent($viewContent): string
     {
         $layoutContent = $this->getLayoutContent();
         return str_replace("{{content}}", $viewContent, $layoutContent);
     }
     
-    public function renderView($view, $params = [])
+    public function renderView($view, $params = []): string
     {
         $layoutContent = $this->getLayoutContent($params);
         $viewContent = $this->getViewContent($view, $params);

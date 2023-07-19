@@ -13,20 +13,9 @@ class SiteController extends Controller
 
     }
 
-    public function actionIndex()
+    public function actionIndex(): string
     {
         $this->pageInfo['title'] = "Авторизация пользователя";
         return $this->render('index', $this->pageInfo);
-    }
-
-    public function actionFeedback()
-    {
-        $this->pageInfo['title'] = "Обратная связь";
-        return $this->render('feedback', $this->pageInfo);
-    }
-
-    public function actionFeedbackFormSubmit(Request $request)
-    {
-        $data = $request->getSecureData();
     }
 }
