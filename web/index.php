@@ -4,8 +4,9 @@ $dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
 
 use app\core\Application;
-use \app\controllers\SiteController;
+use app\controllers\SiteController;
 use app\controllers\AuthController;
+use app\controllers\FeedbackController;
 
 $config = [
     'db' => [
@@ -19,6 +20,9 @@ $config = [
 
 $app = new Application($config);
 $app->routing->get('/', [SiteController::class, 'actionIndex']);
+
+$app->routing->get('/feedback', [FeedbackController::class, 'actionFeedback']);
+$app->routing->post('/feedback', [FeedbackController::class, 'actionFeedback']);
 
 $app->routing->get('/login', [AuthController::class, 'actionLogin']);
 $app->routing->post('/login', [AuthController::class, 'actionLogin']);

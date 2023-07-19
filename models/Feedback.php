@@ -4,7 +4,7 @@ namespace app\models;
 
 use app\core\ActiveRecord;
 
-class FeedbackForm extends ActiveRecord
+class Feedback extends ActiveRecord
 {
 
     static public function tableName(): string
@@ -59,5 +59,10 @@ class FeedbackForm extends ActiveRecord
                 [self::MAX, 'max' => 65535]
             ]
         ];
+    }
+
+    public function sandFeedback(): bool
+    {
+        return $this->save();
     }
 }

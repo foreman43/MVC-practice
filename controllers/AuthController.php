@@ -10,7 +10,7 @@ use app\models\LoginForm;
 
 class AuthController extends Controller
 {
-    public function actionLogin(Request $request)
+    public function actionLogin(Request $request): string
     {
         $this->pageInfo['title'] = 'Авторизация';
         $model = new LoginForm();
@@ -25,21 +25,19 @@ class AuthController extends Controller
                 );
                 Application::$app->response->redirect('/');
             }
-            $this->pageInfo['model'] = $model;
-            return $this->render('login', $this->pageInfo);
         }
 
         $this->pageInfo['model'] = $model;
         return $this->render('login', $this->pageInfo);
     }
 
-    public function actionLogout()
+    public function actionLogout(): string
     {
         Application::$app->logout();
         Application::$app->response->redirect('/');
     }
 
-    public function actionRegister(Request $request)
+    public function actionRegister(Request $request): string
     {
         $this->pageInfo['title'] = 'Регистрация';
         $model = new User();
@@ -53,9 +51,6 @@ class AuthController extends Controller
                 );
                 Application::$app->response->redirect('/');
             }
-
-            $this->pageInfo['model'] = $model;
-            return $this->render('register',$this->pageInfo);
         }
 
         $this->pageInfo['model'] = $model;
