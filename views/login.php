@@ -1,6 +1,8 @@
 <?php
 //** @var $model \app\models\User */
+
 use app\core\form\Form;
+
 $form = new Form($model);
 $form->formBegin();
 

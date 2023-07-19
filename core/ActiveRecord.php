@@ -39,4 +39,6 @@ abstract class ActiveRecord extends Model
     {
         return Application::$app->db->prepare($query);
     }
+
+    abstract public function getLabels(): array;
 }

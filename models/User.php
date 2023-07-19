@@ -52,7 +52,7 @@ class User extends ActiveRecord
         ];
     }
 
-    public function register()
+    public function register(): bool
     {
         $this->password = password_hash($this->password,PASSWORD_DEFAULT);
         return $this->save();

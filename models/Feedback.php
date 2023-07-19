@@ -6,6 +6,13 @@ use app\core\ActiveRecord;
 
 class Feedback extends ActiveRecord
 {
+    public int $themeId;
+    public int $userId;
+    public bool $forAdmins;
+    public bool $forManagers;
+    public bool $responseRequired;
+    public string $heading;
+    public string $text;
 
     static public function tableName(): string
     {
@@ -58,6 +65,20 @@ class Feedback extends ActiveRecord
                 [self::REQUIRED],
                 [self::MAX, 'max' => 65535]
             ]
+        ];
+    }
+
+    public function getLabels(): array
+    {
+        return [
+            'id' => '',
+            'theme_id' => 'Theme',
+            'user_id' => '',
+            'for_admins' => '',
+            'for_managers' => '',
+            'response_required' => 'Answer me',
+            'heading' => 'Heading',
+            'text' => 'Text'
         ];
     }
 
