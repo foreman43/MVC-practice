@@ -6,11 +6,10 @@ use app\core\ActiveRecord;
 
 class Feedback extends ActiveRecord
 {
-    public int $themeId;
-    public int $userId;
-    public bool $forAdmins;
-    public bool $forManagers;
-    public bool $responseRequired;
+    public int $theme_id;
+    public int $user_id;
+    public string $send_to;
+    public bool $response_required;
     public string $heading;
     public string $text;
 
@@ -25,8 +24,7 @@ class Feedback extends ActiveRecord
           'id',
           'theme_id',
           'user_id',
-          'for_admins',
-          'for_managers',
+          'send_to',
           'response_required',
           'heading',
           'text'
@@ -47,10 +45,7 @@ class Feedback extends ActiveRecord
             'user_id' =>[
                 [self::REQUIRED]
             ],
-            'for_admins' =>[
-                [self::REQUIRED]
-            ],
-            'for_managers' =>[
+            'send_to' =>[
                 [self::REQUIRED]
             ],
             'response_required' =>[
@@ -74,8 +69,8 @@ class Feedback extends ActiveRecord
             'id' => '',
             'theme_id' => 'Theme',
             'user_id' => '',
-            'for_admins' => '',
-            'for_managers' => '',
+            '1' => 'Admins',
+            '2' => 'Managers',
             'response_required' => 'Answer me',
             'heading' => 'Heading',
             'text' => 'Text'
