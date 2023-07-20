@@ -31,6 +31,11 @@ class Form
         echo new Field($this->model, $attribute, $type, $variant, $value);
     }
 
+    public function select(string $attribute, array $options): void
+    {
+        echo new Select($this->model, $attribute, $options);
+    }
+
     public function label(string $message, string $for = ""): void
     {
         echo "<label class=\"form-label\">$message</label>";
