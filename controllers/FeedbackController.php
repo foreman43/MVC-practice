@@ -6,6 +6,7 @@ use app\core\Application;
 use app\core\Controller;
 use app\core\Request;
 use app\models\Feedback;
+use app\models\User;
 
 class FeedbackController extends Controller
 {
@@ -16,6 +17,7 @@ class FeedbackController extends Controller
 
         if($request->isPost()) {
             $model->putData($request->getSecureData());
+            $model->user_id = Application::$app->user->{User::primaryKey()};
             if($model->validate() && $model->sandFeedback()) {
                 Application::$app->session->setFlash(
                     'success',
