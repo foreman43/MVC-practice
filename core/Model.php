@@ -1,8 +1,6 @@
 <?php
 
 namespace app\core;
-//todo: rewrite db to use app namespace
-//use Db\Db;
 abstract class Model
 {
     public const REQUIRED = 'required';

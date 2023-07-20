@@ -55,7 +55,6 @@ class Application
 
     public function logout(): void
     {
-        //todo: Fix bug: when a logged-in user performs any action on the page /feedback it get logged-out
         $this->session->remove('user');
     }
 }

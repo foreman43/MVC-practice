@@ -39,7 +39,8 @@ use app\core\Application;
                             echo '<a class="nav-link" href="/login">Аутентификация</a>';
                         }
                         else {
-                            echo '<a class="nav-link" href="/logout">' . Application::$app->user->name ?? Application::$app->user->email . '</a>';
+                            $showName = Application::$app->user->name ?? Application::$app->user->email;
+                            echo "<a class=\"nav-link\" href=\"/logout\">$showName</a>";
                         }
                         ?>
                     </li>
