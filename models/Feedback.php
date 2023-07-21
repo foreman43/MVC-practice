@@ -6,9 +6,9 @@ use app\core\ActiveRecord;
 
 class Feedback extends ActiveRecord
 {
-    public int $theme_id;
+    public int $theme_id = 0;
     public int $user_id;
-    public string $send_to;
+    public int $send_to;
     public bool $response_required;
     public string $heading;
     public string $text;
@@ -21,7 +21,6 @@ class Feedback extends ActiveRecord
     public function attributes(): array
     {
         return [
-          'id',
           'theme_id',
           'user_id',
           'send_to',
@@ -66,7 +65,6 @@ class Feedback extends ActiveRecord
     public function getLabels(): array
     {
         return [
-            'id' => '',
             'theme_id' => 'Theme',
             'user_id' => '',
             '1' => 'Admins',
@@ -77,8 +75,22 @@ class Feedback extends ActiveRecord
         ];
     }
 
-    public function sandFeedback(): bool
+    public function getThemes(): array
     {
+        //TODO: Implement selecting themes form db
+
+        return [];
+    }
+
+    public function getRoles(): array
+    {
+        //TODO: Implement selecting roles form db
+        return [];
+    }
+
+    public function sendFeedback(): bool
+    {
+        var_dump($this);
         return $this->save();
     }
 }

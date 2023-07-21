@@ -11,8 +11,8 @@ $form->formBegin();
 $form->select(
     'theme_id',
     [
-        '1' => 'Theme1',
-        '2' => 'Theme2'
+        1 => 'Theme1',
+        2 => 'Theme2'
     ]
 );
 
