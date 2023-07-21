@@ -8,7 +8,7 @@ $form->formBegin();
 
 $form->field('email', 'email');
 $form->field('password', 'password');
-$form->submitButton("Login");
+$form->submitButton("submit", "Login");
 $form->formEnd();
 ?>
 <div class="container">

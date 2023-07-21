@@ -41,8 +41,8 @@ class Form
         echo "<label class=\"form-label\">$message</label>";
     }
 
-    public function submitButton(string $text="Submit"): void
+    public function submitButton(string $type, string $text): void
     {
-        echo '<button type="submit" class="btn btn-primary">' . $text . '</button>';
+        echo "<button type=\"$type\" class=\"btn btn-primary\">$text</button>";
     }
 }

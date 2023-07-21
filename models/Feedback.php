@@ -91,7 +91,6 @@ class Feedback extends ActiveRecord
     public function sendFeedback(): bool
     {
         //todo: fix foreign key's in db table feedback
-        var_dump($this);
-        return false;//$this->save();
+        return $this->save();
     }
 }
