@@ -18,7 +18,8 @@ class Select
 
     public function __toString(): string
     {
-        $select = "<label class=\"form-label\">{$this->model->getLabels()[$this->attribute]}</label><select class=\"form-select\">";
+        $select = "<label class=\"form-label\">{$this->model->getLabels()[$this->attribute]}</label>
+        <select class=\"form-select\" name=\"{$this->attribute}\">";
 
         foreach ($this->options as $key => $value) {
             $select .= "<option value=\"$key\">$value</option>";

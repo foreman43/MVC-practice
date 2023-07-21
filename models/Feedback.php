@@ -6,10 +6,10 @@ use app\core\ActiveRecord;
 
 class Feedback extends ActiveRecord
 {
-    public int $theme_id = 0;
+    public ?int $theme_id = null;
     public int $user_id;
-    public int $send_to;
-    public bool $response_required;
+    public ?int $send_to = null;
+    public bool $response_required = false;
     public string $heading;
     public string $text;
 
@@ -90,7 +90,8 @@ class Feedback extends ActiveRecord
 
     public function sendFeedback(): bool
     {
+        //todo: fix foreign key's in db table feedback
         var_dump($this);
-        return $this->save();
+        return false;//$this->save();
     }
 }

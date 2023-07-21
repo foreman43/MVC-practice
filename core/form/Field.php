@@ -51,12 +51,13 @@ class Field
             case self::VARIANT_CHECK:
                 return sprintf(
                     '<div class="form-check">
-                    <input class="form-check-input" type="%s" name="%s" value="%s">
+                    <input class="form-check-input" type="%s" name="%s" value="%s" %s>
                     <label class="form-check-label">%s</label>
                     </div>',
                     $this->type,
                     $this->attribute,
                     $this->value,
+                    $this->model->{$this->attribute} ? "checked" : "",
                     $this->model->getLabels()[$this->value]
                 );
         }
