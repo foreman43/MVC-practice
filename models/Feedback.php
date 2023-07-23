@@ -67,8 +67,6 @@ class Feedback extends ActiveRecord
         return [
             'theme_id' => 'Theme',
             'user_id' => '',
-            '1' => 'Admins',
-            '2' => 'Managers',
             'response_required' => 'Answer me',
             'heading' => 'Heading',
             'text' => 'Text'
@@ -78,17 +76,21 @@ class Feedback extends ActiveRecord
     public function getThemes(): array
     {
         $themes = Theme::find();
-        $associativeThemes = [];
+        $associative = [];
         foreach ($themes as $theme) {
-            $associativeThemes[$theme->id] = $theme->name;
+            $associative[$theme->id] = $theme->name;
         }
-        return $associativeThemes;
+        return $associative;
     }
 
     public function getRoles(): array
     {
-        //TODO: Implement selecting roles form db
-        return [];
+        $roles = Role::find();
+        $associative = [];
+        foreach ($roles as $role) {
+            $associative[$role->id] = $role->name;
+        }
+        return $associative;
     }
 
     public function sendFeedback(): bool

@@ -6,6 +6,7 @@ use app\core\Application;
 use app\core\Controller;
 use app\core\Request;
 use app\models\Feedback;
+use app\models\Theme;
 use app\models\User;
 
 class FeedbackController extends Controller

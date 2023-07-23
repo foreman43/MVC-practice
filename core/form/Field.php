@@ -11,8 +11,9 @@ class Field
     public Model $model;
     public string $attribute;
     public string $type;
-    public string $value;
     public int $variant;
+    public string $value;
+    public ?string $label;
 
     public function __construct(
         Model $model,
@@ -20,12 +21,14 @@ class Field
         string $type = "text",
         int $variant = self::VARIANT_CONTROL,
         string $value = null,
+        string $label = null
     ) {
         $this->model = $model;
         $this->attribute = $attribute;
         $this->type = $type;
-        $this->value = $value ?? $attribute;
         $this->variant = $variant;
+        $this->value = $value ?? $attribute;
+        $this->label = $label;
     }
 
     public function __toString()
@@ -58,7 +61,7 @@ class Field
                     $this->attribute,
                     $this->value,
                     $this->model->{$this->attribute} ? "checked" : "",
-                    $this->model->getLabels()[$this->value]
+                    $this->label ?? $this->model->getLabels()[$this->value]
                 );
         }
     }

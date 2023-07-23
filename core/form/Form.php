@@ -26,9 +26,10 @@ class Form
         $attribute,
         $type,
         $variant = Field::VARIANT_CONTROL,
-        $value = null
+        $value = null,
+        $label = null
     ): void {
-        echo new Field($this->model, $attribute, $type, $variant, $value);
+        echo new Field($this->model, $attribute, $type, $variant, $value, $label);
     }
 
     public function select(string $attribute, array $options): void
