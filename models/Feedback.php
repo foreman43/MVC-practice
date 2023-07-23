@@ -21,12 +21,12 @@ class Feedback extends ActiveRecord
     public function attributes(): array
     {
         return [
-          'theme_id',
-          'user_id',
-          'send_to',
-          'response_required',
-          'heading',
-          'text'
+            'theme_id',
+            'user_id',
+            'send_to',
+            'response_required',
+            'heading',
+            'text'
         ];
     }
 
@@ -38,24 +38,24 @@ class Feedback extends ActiveRecord
     public function rules(): array
     {
         return [
-            'theme_id' =>[
+            'theme_id' => [
                 [self::REQUIRED]
             ],
-            'user_id' =>[
+            'user_id' => [
                 [self::REQUIRED]
             ],
-            'send_to' =>[
+            'send_to' => [
                 [self::REQUIRED]
             ],
-            'response_required' =>[
+            'response_required' => [
                 [self::REQUIRED]
             ],
-            'heading' =>[
+            'heading' => [
                 [self::REQUIRED],
                 [self::MIN, 'min' => 3],
                 [self::MAX, 'max' => 30]
             ],
-            'text' =>[
+            'text' => [
                 [self::REQUIRED],
                 [self::MAX, 'max' => 65535]
             ]
@@ -77,8 +77,7 @@ class Feedback extends ActiveRecord
 
     public function getThemes(): array
     {
-        //TODO: Implement selecting themes form db
-
+        var_dump(Theme::find());
         return [];
     }
 
@@ -90,7 +89,6 @@ class Feedback extends ActiveRecord
 
     public function sendFeedback(): bool
     {
-        //todo: fix foreign key's in db table feedback
         return $this->save();
     }
 }

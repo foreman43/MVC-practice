@@ -10,6 +10,7 @@ abstract class ActiveRecord extends Model
 
     public function save(): bool
     {
+        var_dump($this);
         $tableName = $this->tableName();
         $attributes = $this->attributes();
         $values = array_map(fn($attr) => ":$attr", $attributes);
@@ -33,6 +34,25 @@ abstract class ActiveRecord extends Model
         }
         $statment->execute();
         return $statment->fetchObject(static::class);
+    }
+
+    public static function find(
+        array|string $attributes = "*",
+        string $where = null
+    ): array
+    {
+        $where = $where ?? static::primaryKey() . "=" . static::primaryKey();
+        $tableName = static::tableName();
+        $attributes = is_array($attributes) ? implode(", ", $attributes) : $attributes;
+        $statment = self::prepare("SELECT $attributes FROM $tableName WHERE $where");
+        $statment->execute();
+
+        $queryResult = [];
+        while ($record = $statment->fetchObject(static::class)) {
+            array_push($queryResult, $record);
+        }
+
+        return $queryResult;
     }
 
     public static function prepare(string $query)

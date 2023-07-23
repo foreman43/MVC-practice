@@ -18,7 +18,6 @@ class FeedbackController extends Controller
         if($request->isPost()) {
             $model->putData($request->getSecureData());
             $model->user_id = Application::$app->user->{User::primaryKey()};
-            var_dump($model->sendFeedback());
             if($model->validate() && $model->sendFeedback()) {
                 Application::$app->session->setFlash(
                     'success',
