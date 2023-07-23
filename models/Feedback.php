@@ -77,8 +77,12 @@ class Feedback extends ActiveRecord
 
     public function getThemes(): array
     {
-        var_dump(Theme::find());
-        return [];
+        $themes = Theme::find();
+        $associativeThemes = [];
+        foreach ($themes as $theme) {
+            $associativeThemes[$theme->id] = $theme->name;
+        }
+        return $associativeThemes;
     }
 
     public function getRoles(): array
