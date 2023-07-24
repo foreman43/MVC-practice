@@ -33,15 +33,13 @@ class Field
 
     public function __toString()
     {
-        //todo: Fix bug: errors not shown to user(exist in DOM struct)
-
         switch ($this->variant)
         {
             case self::VARIANT_CONTROL:
                 return sprintf(
                     '<label class="form-label">%s</label>
                     <input type="%s" name="%s" class="form-control%s" value="%s">
-                    <div class="invalid-feedback">%s</div>',
+                    <div class="invalid-feedback" style="display: block">%s</div>',
                     $this->model->getLabels()[$this->attribute],
                     $this->type,
                     $this->attribute,

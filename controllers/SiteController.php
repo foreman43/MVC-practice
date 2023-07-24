@@ -17,7 +17,7 @@ class SiteController extends Controller
 
     public function actionIndex(): string
     {
-        $this->pageInfo['title'] = "Авторизация пользователя";
+        $this->pageInfo['title'] = "Главная";
         if(!Application::isGuest()) {
             Application::$app->response->redirect('/feedback');
         }
