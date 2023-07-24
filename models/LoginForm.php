@@ -9,31 +9,32 @@ class LoginForm extends Model
 {
     public string $email;
     public string $password;
+
     public function rules(): array
     {
         return [
-            'email' => [
+            "email" => [
                 [self::REQUIRED],
                 [self::EMAIL]
             ],
-            'password' => [
+            "password" => [
                 [self::REQUIRED],
-                [self::MIN, 'min' => 5],
-                [self::MAX, 'max' => 30]
+                [self::MIN, "min" => 5],
+                [self::MAX, "max" => 30]
             ]
         ];
     }
 
     public function login(): bool
     {
-        $user = User::findOne(['email' => $this->email]);
+        $user = User::findOne(["email" => $this->email]);
         if(!$user) {
-            $this->addErrorMessage('email', 'This user does not exist');
+            $this->addErrorMessage("email", "This user does not exist");
             return false;
         }
 
         if(!password_verify($this->password, $user->password)) {
-            $this->addErrorMessage('password', 'Wrong email or password');
+            $this->addErrorMessage("password", "Wrong email or password");
             return false;
         }
 
@@ -43,8 +44,8 @@ class LoginForm extends Model
     public function getLabels(): array
     {
         return [
-            'email' => 'Email',
-            'password' => 'Password',
+            "email" => "Email",
+            "password" => "Password",
         ];
     }
 }

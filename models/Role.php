@@ -8,20 +8,20 @@ class Role extends ActiveRecord
 {
     public static function tableName(): string
     {
-        return 'role';
+        return "role";
     }
 
     public function attributes(): array
     {
         return [
-            'id',
-            'name'
+            "id",
+            "name"
         ];
     }
 
     public static function primaryKey(): string
     {
-        return 'id';
+        return "id";
     }
 
     public function rules(): array
@@ -32,8 +32,8 @@ class Role extends ActiveRecord
     public function getLabels(): array
     {
         return [
-            'id' => 'Identifier',
-            'name' => 'Role name'
+            "id" => "Identifier",
+            "name" => "Role name"
         ];
     }
 }

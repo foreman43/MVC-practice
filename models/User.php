@@ -7,11 +7,11 @@ use app\core\Model;
 
 class User extends ActiveRecord
 {
-    public string $id = '';
-    public string $email = '';
-    public string $name = '';
-    public string $password = '';
-    public string $confirmPassword = '';
+    public string $id = "";
+    public string $email = "";
+    public string $name = "";
+    public string $password = "";
+    public string $confirmPassword = "";
     public int $role_id = 3;
 
     public static function tableName(): string
@@ -21,16 +21,16 @@ class User extends ActiveRecord
 
     public static function primaryKey(): string
     {
-        return 'id';
+        return "id";
     }
 
     public function attributes(): array
     {
         return [
-            'email',
-            'name',
-            'password',
-            'role_id'
+            "email",
+            "name",
+            "password",
+            "role_id"
         ];
     }
 
@@ -38,15 +38,15 @@ class User extends ActiveRecord
     {
         //todo: finish filling the rules
         return [
-            'email' => [
+            "email" => [
                 [self::REQUIRED],
-                [self::UNIQUE, 'class' => self::class],
+                [self::UNIQUE, "class" => self::class],
             ],
-            'password' => [
+            "password" => [
                 [self::REQUIRED],
-                [self::MIN, 'min' => 5],
+                [self::MIN, "min" => 5],
             ],
-            'confirmPassword' => [
+            "confirmPassword" => [
                 [self::REQUIRED],
             ],
         ];
@@ -61,11 +61,11 @@ class User extends ActiveRecord
     public function getLabels(): array
     {
         return [
-            'id' => 'Identifier',
-            'email' => 'Email',
-            'name' => 'Name',
-            'password' => 'Password',
-            'confirmPassword' => 'Password Confirm'
+            "id" => "Identifier",
+            "email" => "Email",
+            "name" => "Name",
+            "password" => "Password",
+            "confirmPassword" => "Password Confirm"
         ];
     }
 }

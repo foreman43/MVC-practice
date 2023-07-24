@@ -8,20 +8,20 @@ class Theme extends ActiveRecord
 {
     public static function tableName(): string
     {
-        return 'themes';
+        return "themes";
     }
 
     public function attributes(): array
     {
         return [
-            'id',
-            'name'
+            "id",
+            "name"
         ];
     }
 
     public static function primaryKey(): string
     {
-        return 'id';
+        return "id";
     }
 
     public function rules(): array
@@ -32,8 +32,8 @@ class Theme extends ActiveRecord
     public function getLabels(): array
     {
         return [
-            'id' => 'Identifier',
-            'name' => 'Theme name'
+            "id" => "Identifier",
+            "name" => "Theme name"
         ];
     }
 }

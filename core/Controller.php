@@ -7,11 +7,6 @@ class Controller
     public string $layout = "main";
     protected $pageInfo = array();
 
-    public function __construct()
-    {
-
-    }
-
     public function render(string $view, $params = []): string
     {
         return Application::$app->routing->renderView($view, $params);

@@ -11,17 +11,17 @@ class Routing
         $this->request = $request;
     }
 
-    public function get(string $path, $callback)
+    public function get(string $path, $callback): void
     {
         $this->routes['get'][$path] = $callback;
     }
 
-    public function post(string $path, $callback)
+    public function post(string $path, $callback): void
     {
         $this->routes['post'][$path] = $callback;
     }
 
-    public function resolve()
+    public function resolve(): mixed
     {
         $path = $this->request->getPath();
         $method = $this->request->getMethod();
@@ -41,7 +41,7 @@ class Routing
         return call_user_func($callback, $this->request);
     }
 
-    protected function getLayoutContent($params): false|string
+    protected function getLayoutContent($params = []): false|string
     {
         $layout = Application::$app->controller->layout;
         foreach ($params as $key=>$value)

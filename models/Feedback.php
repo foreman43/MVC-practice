@@ -15,49 +15,49 @@ class Feedback extends ActiveRecord
 
     static public function tableName(): string
     {
-        return 'feedback';
+        return "feedback";
     }
 
     public function attributes(): array
     {
         return [
-            'theme_id',
-            'user_id',
-            'send_to',
-            'response_required',
-            'heading',
-            'text'
+            "theme_id",
+            "user_id",
+            "send_to",
+            "response_required",
+            "heading",
+            "text"
         ];
     }
 
     public static function primaryKey(): string
     {
-        return 'id';
+        return "id";
     }
 
     public function rules(): array
     {
         return [
-            'theme_id' => [
+            "theme_id" => [
                 [self::REQUIRED]
             ],
-            'user_id' => [
+            "user_id" => [
                 [self::REQUIRED]
             ],
-            'send_to' => [
+            "send_to" => [
                 [self::REQUIRED]
             ],
-            'response_required' => [
+            "response_required" => [
                 [self::REQUIRED]
             ],
-            'heading' => [
+            "heading" => [
                 [self::REQUIRED],
-                [self::MIN, 'min' => 3],
-                [self::MAX, 'max' => 30]
+                [self::MIN, "min" => 3],
+                [self::MAX, "max" => 30]
             ],
-            'text' => [
+            "text" => [
                 [self::REQUIRED],
-                [self::MAX, 'max' => 65535]
+                [self::MAX, "max" => 65535]
             ]
         ];
     }
@@ -65,11 +65,11 @@ class Feedback extends ActiveRecord
     public function getLabels(): array
     {
         return [
-            'theme_id' => 'Theme',
-            'user_id' => '',
-            'response_required' => 'Answer me',
-            'heading' => 'Heading',
-            'text' => 'Text'
+            "theme_id" => "Theme",
+            "user_id" => "",
+            "response_required" => "Answer me",
+            "heading" => "Heading",
+            "text" => "Text"
         ];
     }
 

@@ -1,27 +1,21 @@
 <?php
 
 namespace app\core;
+
 abstract class Model
 {
-    public const REQUIRED = 'required';
-    public const MIN = 'min';
-    public const MAX = 'max';
-    public const EMAIL = 'email';
-    public const MACH = 'mach';
-    public const UNIQUE = 'unique';
-
-    //protected $db = null;
+    public const REQUIRED = "required";
+    public const MIN = "min";
+    public const MAX = "max";
+    public const EMAIL = "email";
+    public const MACH = "mach";
+    public const UNIQUE = "unique";
 
     public array $errors = [];
 
-    public function __construct()
-    {
-        //$this->db = Db::createConnection();
-    }
-
     abstract public function rules(): array;
 
-    public function putData($data): void
+    public function putData(array $data): void
     {
         foreach ($data as $key => $value) {
             if(property_exists($this, $key)) {
@@ -55,25 +49,25 @@ abstract class Model
                         break;
 
                     case self::MIN:
-                        if(strlen($value) < $rule['min']) {
+                        if(strlen($value) < $rule["min"]) {
                             $this->addErrorByRule($attribute, self::MIN, $rule);
                         }
                         break;
 
                     case self::MAX:
-                        if(strlen($value) > $rule['max']) {
+                        if(strlen($value) > $rule["max"]) {
                             $this->addErrorByRule($attribute, self::MAX, $rule);
                         }
                         break;
 
                     case self::MACH:
-                        if($value != $rule['mach']) {
+                        if($value != $rule["mach"]) {
                             $this->addErrorByRule($attribute, self::MACH, $rule);
                         }
                         break;
 
                     case self::UNIQUE:
-                        $className = $rule['class'];
+                        $className = $rule["class"];
                         $tableName = $className::tableName();
                         $statment = Application::$app->db->prepare(
                             "SELECT * FROM $tableName 

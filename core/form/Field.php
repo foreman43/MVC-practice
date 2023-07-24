@@ -8,6 +8,7 @@ class Field
 {
     const VARIANT_CONTROL = 0;
     const VARIANT_CHECK = 1;
+
     public Model $model;
     public string $attribute;
     public string $type;
@@ -43,8 +44,8 @@ class Field
                     $this->model->getLabels()[$this->attribute],
                     $this->type,
                     $this->attribute,
-                    $this->model->containErrors($this->attribute) ? ' in-valid' : '',
-                    $this->type != 'password'
+                    $this->model->containErrors($this->attribute) ? " in-valid" : "",
+                    $this->type != "password"
                         ? $this->model->{$this->attribute} ?? '': '',
                     $this->model->getFirstError($this->attribute)
                 );
