@@ -37,8 +37,8 @@ abstract class ActiveRecord extends Model
     }
 
     public static function find(
+        string $where = null,
         array|string $attributes = "*",
-        string $where = null
     ): array
     {
         $where = $where ?? static::primaryKey() . "=" . static::primaryKey();

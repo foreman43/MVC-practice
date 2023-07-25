@@ -32,8 +32,8 @@ class Role extends ActiveRecord
     public function getLabels(): array
     {
         return [
-            "id" => "Identifier",
-            "name" => "Role name"
+            "id" => "Идентификатор",
+            "name" => "Имя роли"
         ];
     }
 }

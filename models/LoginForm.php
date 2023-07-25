@@ -29,12 +29,12 @@ class LoginForm extends Model
     {
         $user = User::findOne(["email" => $this->email]);
         if(!$user) {
-            $this->addErrorMessage("email", "This user does not exist");
+            $this->addErrorMessage("email", "Пользователь не существует");
             return false;
         }
 
         if(!password_verify($this->password, $user->password)) {
-            $this->addErrorMessage("password", "Wrong email or password");
+            $this->addErrorMessage("password", "Неверный Email или пароль");
             return false;
         }
 
@@ -45,7 +45,7 @@ class LoginForm extends Model
     {
         return [
             "email" => "Email",
-            "password" => "Password",
+            "password" => "Пароль",
         ];
     }
 }

@@ -113,12 +113,12 @@ abstract class Model
     public function getErrorMessage(): array
     {
         return [
-            self::REQUIRED => "field is required",
-            self::MIN => "field must be longer then {min}",
-            self::MAX => "field must be shorter then {max}",
-            self::EMAIL => "field must be an Email",
-            self::MACH => "attribute must mach a {mach} field",
-            self::UNIQUE => "attribute must be unique"
+            self::REQUIRED => "это поле обязательно",
+            self::MIN => "минимальное количество символов: {min}",
+            self::MAX => "максимальное количество символов: {max}",
+            self::EMAIL => "введите Email",
+            self::MACH => "не совпадает с {mach}",
+            self::UNIQUE => "уже существует"
         ];
     }
 }

@@ -21,7 +21,7 @@ class FeedbackController extends Controller
             if($model->validate() && $model->sendFeedback()) {
                 Application::$app->session->setFlash(
                     "success",
-                "Feedback was sent! Thanks for your opinion.");
+                "Отзыв отправлен! Спасибо за ваше мнение.");
             }
         }
 

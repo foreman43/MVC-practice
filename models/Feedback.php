@@ -65,11 +65,11 @@ class Feedback extends ActiveRecord
     public function getLabels(): array
     {
         return [
-            "theme_id" => "Theme",
+            "theme_id" => "Тематика",
             "user_id" => "",
-            "response_required" => "Answer me",
-            "heading" => "Heading",
-            "text" => "Text"
+            "response_required" => "Отправьте мне ответ",
+            "heading" => "Заголовок",
+            "text" => "Текст отзыва"
         ];
     }
 
@@ -83,9 +83,9 @@ class Feedback extends ActiveRecord
         return $associative;
     }
 
-    public function getRoles(): array
+    public function getRoles(string $where): array
     {
-        $roles = Role::find();
+        $roles = Role::find($where);
         $associative = [];
         foreach ($roles as $role) {
             $associative[$role->id] = $role->name;

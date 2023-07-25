@@ -32,8 +32,8 @@ class Theme extends ActiveRecord
     public function getLabels(): array
     {
         return [
-            "id" => "Identifier",
-            "name" => "Theme name"
+            "id" => "Идентификатор",
+            "name" => "Имя темы"
         ];
     }
 }

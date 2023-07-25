@@ -36,7 +36,7 @@ use app\core\Application;
                     <li class="nav-item">
                         <?php
                         if(Application::isGuest()) {
-                            echo '<a class="nav-link" href="/login">Аутентификация</a>';
+                            echo '<a class="nav-link" href="/login">Авторизация</a>';
                         }
                         else {
                             $showName = Application::$app->user->name ?? Application::$app->user->email;

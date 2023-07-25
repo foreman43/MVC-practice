@@ -3,14 +3,16 @@
 
 use app\core\form\Form;
 
+echo "<h1>Авторизация</h1>";
+
 $form = new Form($model);
 $form->formBegin();
 
 $form->field('email', 'email');
 $form->field('password', 'password');
-$form->submitButton("submit", "Login");
+$form->submitButton("submit", "Войти");
 $form->formEnd();
 ?>
 <div class="container">
-    <p>Don't have an account yet? <a href="/register">Register hire!</a></p>
+    <p>Ещё не завели аккаунт? Зарегистрируйтесь <a href="/register">здесь</a>!</p>
 </div>

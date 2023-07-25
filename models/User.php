@@ -61,11 +61,11 @@ class User extends ActiveRecord
     public function getLabels(): array
     {
         return [
-            "id" => "Identifier",
+            "id" => "Идентификатор",
             "email" => "Email",
-            "name" => "Name",
-            "password" => "Password",
-            "confirmPassword" => "Password Confirm"
+            "name" => "Имя",
+            "password" => "Пароль",
+            "confirmPassword" => "Пароль ещё раз"
         ];
     }
 }
