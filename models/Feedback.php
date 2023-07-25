@@ -47,9 +47,6 @@ class Feedback extends ActiveRecord
             "send_to" => [
                 [self::REQUIRED]
             ],
-            "response_required" => [
-                [self::REQUIRED]
-            ],
             "heading" => [
                 [self::REQUIRED],
                 [self::MIN, "min" => 3],

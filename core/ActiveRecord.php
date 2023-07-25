@@ -10,7 +10,6 @@ abstract class ActiveRecord extends Model
 
     public function save(): bool
     {
-        var_dump($this);
         $tableName = $this->tableName();
         $attributes = $this->attributes();
         $values = array_map(fn($attr) => ":$attr", $attributes);
