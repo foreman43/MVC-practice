@@ -32,6 +32,11 @@ class Form
         echo new Field($this->model, $attribute, $type, $variant, $value, $label);
     }
 
+    public function textarea(string $attribute): void
+    {
+        echo new Textarea($this->model, $attribute);
+    }
+
     public function select(string $attribute, array $options): void
     {
         echo new Select($this->model, $attribute, $options);

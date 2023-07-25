@@ -19,7 +19,7 @@ foreach ($roles as $key => $value) {
 }
 
 $form->field('heading', 'text');
-$form->field('text', 'text');
+$form->textarea('text');
 
 $form->field('response_required', 'checkbox', Field::VARIANT_CHECK);
 
