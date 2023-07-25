@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Июл 24 2023 г., 12:26
+-- Время создания: Июл 25 2023 г., 12:15
 -- Версия сервера: 10.4.25-MariaDB
 -- Версия PHP: 8.1.10
 
@@ -42,7 +42,11 @@ CREATE TABLE `feedback` (
 --
 
 INSERT INTO `feedback` (`id`, `theme_id`, `user_id`, `response_required`, `heading`, `text`, `send_to`) VALUES
-(14, 1, 12, 1, 'dsddfs', 'fdsfdsf', 1);
+(14, 1, 12, 1, 'dsddfs', 'fdsfdsf', 1),
+(15, 1, 12, 0, 'gdfgrt', 'gfhgh', 2),
+(16, 1, 12, 0, 'gdfgrt', 'gfhgh', 2),
+(17, 2, 12, 0, 'eerre', 'dfgdfbcbyjyj', 2),
+(18, 2, 12, 0, 'eerre', 'dfgdfbcbyjyj', 2);
 
 -- --------------------------------------------------------
 
@@ -60,9 +64,9 @@ CREATE TABLE `role` (
 --
 
 INSERT INTO `role` (`id`, `name`) VALUES
-(1, 'admin'),
-(2, 'manager'),
-(3, 'user');
+(1, 'Администратор'),
+(2, 'Менеджер'),
+(3, 'Пользователь');
 
 -- --------------------------------------------------------
 
@@ -150,7 +154,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT для таблицы `role`
