@@ -23,6 +23,7 @@ class Application
         $this->response = new Response();
         $this->session = new Session();
         $this->db = new Database($config["db"]);
+        $this->controller = new Controller();
 
         self::$ROOT = $config["root"];
         self::$app = $this;
