@@ -1,5 +1,7 @@
 <?php
 use app\core\Application;
+
+/** @var string $title */
 ?>
 <!doctype html>
 <html lang="ru">

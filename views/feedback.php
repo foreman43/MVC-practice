@@ -1,5 +1,5 @@
 <?php
-//** @var $model Feedback */
+/** @var $model Feedback */
 
 use app\core\form\Form;
 use \app\core\form\Field;
